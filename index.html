@@ -1,0 +1,2149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aayansh Anand | Portfolio</title>
+    <meta name="description" content="Professional portfolio showcasing web development projects and skills">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+    /*===========================
+  VARIABLES & RESET
+===========================*/
+:root {
+    /* Light Theme Colors */
+    --background-light: #ffffff;
+    --text-primary-light: #333333;
+    --text-secondary-light: #666666;
+    --accent-light: #3498db;
+    --accent-hover-light: #2980b9;
+    --card-bg-light: #f8f9fa;
+    --border-light: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --nav-bg-light: rgba(255, 255, 255, 0.9);
+    
+    /* Dark Theme Colors */
+    --background-dark: #121212;
+    --text-primary-dark: #f0f0f0;
+    --text-secondary-dark: #b0b0b0;
+    --accent-dark: #4dabf7;
+    --accent-hover-dark: #3c8bce;
+    --card-bg-dark: #1e1e1e;
+    --border-dark: #333333;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    --nav-bg-dark: rgba(18, 18, 18, 0.9);
+    
+    /* Default Theme (Light) */
+    --background: var(--background-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --accent: var(--accent-light);
+    --accent-hover: var(--accent-hover-light);
+    --card-bg: var(--card-bg-light);
+    --border: var(--border-light);
+    --shadow: var(--shadow-light);
+    --nav-bg: var(--nav-bg-light);
+    
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 50%;
+    
+    /* Container Width */
+    --container-max-width: 1200px;
+    --container-padding: 1.5rem;
+}
+
+/* Dark Theme Class */
+.dark-theme {
+    --background: var(--background-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --accent: var(--accent-dark);
+    --accent-hover: var(--accent-hover-dark);
+    --card-bg: var(--card-bg-dark);
+    --border: var(--border-dark);
+    --shadow: var(--shadow-dark);
+    --nav-bg: var(--nav-bg-dark);
+}
+
+/* Reset Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+img, svg {
+    max-width: 100%;
+    display: block;
+}
+
+button, input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+  /*LAYOUT & CONTAINERS*/
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+}
+
+.section {
+    padding: var(--space-xl) 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-xl);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background-color: var(--accent);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: var(--radius-sm);
+}
+
+.section-content {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+/* BUTTONS & LINKS*/
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+/* HEADER & NAVIGATION */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--nav-bg);
+    box-shadow: 0 2px 10px var(--shadow);
+    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
+    backdrop-filter: blur(8px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.logo svg {
+    margin-right: 0.5rem;
+    color: var(--accent);
+}
+
+.logo-svg {
+    transition: fill var(--transition-normal);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--accent);
+    transition: width var(--transition-fast), left var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent);
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 180px;
+    background-color: var(--nav-bg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 5px 15px var(--shadow);
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(var(--accent-rgb, 52, 152, 219), 0.1);
+    color: var(--accent);
+    padding-left: 1.5rem;
+}
+
+.dropdown .nav-link .fa-chevron-down {
+    font-size: 0.7rem;
+    transition: transform var(--transition-fast);
+}
+
+.dropdown:hover .nav-link .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    position: relative;
+}
+
+#theme-toggle:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.fa-moon, .fa-sun {
+    position: absolute;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+body:not(.dark-theme) .fa-moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+body:not(.dark-theme) .fa-sun {
+    opacity: 0;
+    transform: scale(0);
+}
+
+body.dark-theme .fa-moon {
+    opacity: 0;
+    transform: scale(0);
+}
+
+body.dark-theme .fa-sun {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-primary);
+    margin: 3px 0;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    border-radius: var(--radius-sm);
+}
+
+/*===========================
+  HERO SECTION
+===========================*/
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    font-weight: 400;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight {
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background-color: var(--accent);
+    bottom: 5px;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: var(--radius-sm);
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-top: var(--space-lg);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: var(--space-xl);
+}
+
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    transition: all var(--transition-fast);
+}
+
+.social-icons a:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/*===========================
+  ABOUT SECTION
+===========================*/
+.about .section-content {
+    grid-template-columns: 1fr;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.about-text p {
+    margin-bottom: var(--space-md);
+}
+
+.about-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.detail-item i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    background-color: rgba(var(--accent-rgb, 52, 152, 219), 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+}
+
+.detail-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xs);
+}
+
+.detail-item p {
+    color: var(--text-secondary);
+}
+
+/*===========================
+  SKILLS SECTION
+===========================*/
+.skills-category {
+    margin-bottom: var(--space-lg);
+}
+
+.skills-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--accent);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: var(--space-sm);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-md);
+}
+
+.skill-item {
+    background-color: var(--card-bg);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: transform var(--transition-fast);
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
+}
+
+.skill-item h4 {
+    margin-bottom: var(--space-sm);
+}
+
+.skill-bar {
+    height: 8px;
+    background-color: var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: var(--radius-sm);
+    position: relative;
+    transition: width 1s ease-in-out;
+}
+
+/*===========================
+  PORTFOLIO SECTION
+===========================*/
+
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+.portfolio-tabs {
+    margin-bottom: var(--space-xl);
+}
+
+.portfolio-tab-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border);
+}
+
+.portfolio-tab-btn {
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.portfolio-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent);
+    transition: width var(--transition-normal);
+}
+
+.portfolio-tab-btn.active {
+    color: var(--accent);
+}
+
+.portfolio-tab-btn.active::after {
+    width: 100%;
+}
+
+.portfolio-tab-content {
+    display: none;
+}
+
+.portfolio-tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.portfolio-item {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.portfolio-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.portfolio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.portfolio-item:hover .portfolio-img img {
+    transform: scale(1.05);
+}
+
+.portfolio-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.portfolio-info {
+    padding: var(--space-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.portfolio-info p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.portfolio-tags span {
+    background-color: rgba(var(--accent-rgb, 52, 152, 219), 0.1);
+    color: var(--accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+}
+
+.portfolio-links {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: auto;
+}
+
+.subsection-title {
+    font-size: 2rem;
+    margin: var(--space-xl) 0 var(--space-lg);
+    color: var(--text-primary);
+    text-align: center;
+    position: relative;
+}
+
+.subsection-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40%;
+    height: 3px;
+    background-color: var(--accent);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: var(--radius-sm);
+}
+
+.certificate-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.certificate-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow);
+}
+
+.certificate-img {
+    height: 180px;
+    overflow: hidden;
+}
+
+.certificate-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.certificate-item:hover .certificate-img img {
+    transform: scale(1.05);
+}
+
+.certificate-info {
+    padding: var(--space-md);
+}
+
+.certificate-info h3 {
+    margin-bottom: var(--space-xs);
+    font-size: 1.2rem;
+}
+
+.certificate-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-xs);
+}
+
+.certificate-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.certificate-issuer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.certificate-issuer img {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-full);
+}
+
+.internship-item {
+    display: flex;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.internship-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow);
+}
+
+.internship-img {
+    width: 120px;
+    min-width: 120px;
+    height: 120px;
+    padding: var(--space-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.internship-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.internship-info {
+    padding: var(--space-md);
+    flex-grow: 1;
+}
+
+.internship-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-xs);
+}
+
+.internship-company {
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: var(--space-xs);
+}
+
+.internship-period {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.internship-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/*===========================
+  CONTACT SECTION
+===========================*/
+.contact .section-content {
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-xl);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.contact-detail i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.contact-detail h3 {
+    margin-bottom: var(--space-xs);
+}
+
+.contact-detail a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.contact-detail a:hover {
+    color: var(--accent);
+}
+
+.contact-social h3 {
+    margin-bottom: var(--space-md);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.social-links a:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.contact-form {
+    background-color: var(--card-bg);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+}
+
+/*===========================
+  FOOTER
+===========================*/
+footer {
+    background-color: var(--card-bg);
+    padding: var(--space-lg) 0;
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.footer-logo a {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.footer-logo svg {
+    margin-right: 0.5rem;
+    color: var(--accent);
+}
+
+.footer-nav ul {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.footer-bottom .fa-heart {
+    color: #e74c3c;
+}
+
+/*===========================
+  BACK TO TOP BUTTON
+===========================*/
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--accent);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-hover);
+}
+
+/*===========================
+  MEDIA QUERIES
+===========================*/
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .contact .section-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .internship-item {
+        flex-direction: column;
+    }
+    
+    .internship-img {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        flex-direction: column;
+        background-color: var(--nav-bg);
+        padding: 80px 40px 40px;
+        transition: right var(--transition-normal);
+        box-shadow: -5px 0 15px var(--shadow);
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-item {
+        margin: 0.8rem 0;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-normal);
+    }
+    
+    .dropdown.active .dropdown-menu {
+        max-height: 500px;
+    }
+    
+    .dropdown-item {
+        padding: 0.5rem 0 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .dropdown-item:hover {
+        padding-left: 2rem;
+    }
+    
+    .dropdown .nav-link .fa-chevron-down {
+        transition: transform var(--transition-normal);
+    }
+    
+    .dropdown.active .nav-link .fa-chevron-down {
+        transform: rotate(180deg);
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .about-details,
+    .skills-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .footer-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .portfolio-tab-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        border-bottom: none;
+    }
+    
+    .portfolio-tab-btn {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 0;
+    }
+    
+    .portfolio-tab-btn::after {
+        display: none;
+    }
+    
+    .portfolio-tab-btn.active {
+        background-color: var(--accent);
+        color: white;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Menu open animation */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Accordion for mobile dropdown */
+.mobile-dropdown-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-dropdown-toggle {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 0.5rem 0;
+        position: relative;
+    }
+}
+
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="#home">
+                        <i class="fas fa-code"></i>
+                        <span>Aayansh Anand</span>
+                    </a>
+                </div>
+                
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#portfolio" class="nav-link">Portfolio <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#projects" class="dropdown-item">Projects</a></li>
+                            <li><a href="#certificates" class="dropdown-item">Certificates</a></li>
+                            <li><a href="#internships" class="dropdown-item">Internships</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Aayansh Anand</span></h1>
+                    <h2 class="hero-subtitle">Front-end Developer & UX Designer</h2>
+                    <p class="hero-description">I build responsive and user-friendly websites that drive results.</p>
+                    <div class="hero-cta">
+                        <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <a href="https://drive.google.com/drive/folders/1oE-Ld7Cp-JkJ3rjKE5kENiLJJ5rP3jfc?usp=sharing" 
+                           class="btn btn-primary" 
+                           download>
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="social-icons">
+                    <a href="https://github.com/aayanshanand" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aayansh-anand10/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-content">
+                    <div class="about-text">
+                        <p>Hello! I'm Aayansh, a passionate Front-end Developer & UX Designer with a keen eye for creating visually appealing and user-friendly digital experiences. With a strong foundation in UI/UX principles, modern web technologies, and responsive design, Aayansh crafts intuitive interfaces that enhance user engagement..</p>
+                        <p>Driven by a love for clean code and seamless interactions, Aayansh specializes in HTML, CSS, JavaScript, React, and design tools like Figma & Adobe XD. Always eager to learn and innovate, he strives to bridge the gap between design and functionality, ensuring every project is both aesthetically pleasing and highly efficient..</p>
+                        <p>When I'm not coding, you can find me exploring new hiking trails, experimenting with photography, or attending tech meetups to stay updated with the latest industry trends.</p>
+                    </div>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h3>Education</h3>
+                                <p>Diploma + B.Tech in Computer Science</p>
+                                <p>Lovely Professional University, Punjab</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <i class="fas fa-location-dot"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Bihar, India</p>
+                                <p>Available for Remote Work</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="section-content">
+                    <div class="skills-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <i class="fab fa-html5"></i>
+                                <h4>HTML5</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-css3-alt"></i>
+                                <h4>CSS3</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-js"></i>
+                                <h4>JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-react"></i>
+                                <h4>React.js</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <h3>UI/UX Design</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <i class="fab fa-figma"></i>
+                                <h4>Figma</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-pencil-ruler"></i>
+                                <h4>Wireframing</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-universal-access"></i>
+                                <h4>Accessibility</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h4>Responsive Design</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category">
+                        <h3>Tools & Technologies</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <i class="fab fa-git-alt"></i>
+                                <h4>Git</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-npm"></i>
+                                <h4>NPM</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-server"></i>
+                                <h4>RESTful APIs</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section">
+            <div class="container">
+                <h2 class="section-title">My Portfolio</h2>
+                
+                <!-- Projects Subsection -->
+                <div id="projects" class="portfolio-subsection">
+                    <h3 class="subsection-title">Projects</h3>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item" data-category="web">
+                            <div class="portfolio-img">
+                                <img src="./Screenshot 2025-05-02 035503.png" alt="Car Rental System" loading="lazy">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>Car Rental System</h3>
+                                <p>A comprehensive car rental platform with booking management and vehicle listings.</p>
+                                <div class="portfolio-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Java</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="https://carrentalsystemcodealpha.netlify.app/" class="btn btn-sm">View Project</a>
+                                    <a href="https://github.com/aayanshanand/Project_Car-Rental-System" class="btn btn-sm btn-outline">Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="ui">
+                            <div class="portfolio-img">
+                                <img src="./img gallery.png" alt="Image Gallery" loading="lazy">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>Image Gallery</h3>
+                                <p>A responsive image gallery with filtering, lightbox view and smooth transitions.</p>
+                                <div class="portfolio-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="https://imggallerycodealpha.netlify.app/" class="btn btn-sm">View Project</a>
+                                    <a href="https://github.com/aayanshanand/CodeAlpha_Project_Image-Gallery" class="btn btn-sm btn-outline">Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="app">
+                            <div class="portfolio-img">
+                                <img src="./music player.png" alt="Music Player" loading="lazy">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>Music player</h3>
+                                <p>Tune in. Vibe out. Experience music like never before.</p>
+                                <div class="portfolio-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="https://sangeetsunno.netlify.app/" class="btn btn-sm">View Project</a>
+                                    <a href="https://github.com/aayanshanand/CodeAlpha_Project_Music-Player" class="btn btn-sm btn-outline">Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item" data-category="web">
+                            <div class="portfolio-img">
+                                <img src="./portfilio ss.png" alt="Portfolio Website" loading="lazy">
+                            </div>
+                            <div class="portfolio-info">
+                                <h3>Portfolio Website</h3>
+                                <p>A custom-designed portfolio showcasing my work with dark/light mode toggle.</p>
+                                <div class="portfolio-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="btn btn-sm">View Project</a>
+                                    <a href="#" class="btn btn-sm btn-outline">Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificates Subsection -->
+                <div id="certificates" class="portfolio-subsection">
+                    <h3 class="subsection-title">Certificates</h3>
+                    <div class="portfolio-grid">
+                        <div class="certificate-item">
+                            <div class="certificate-img">
+                                <img src="./Cipher_School_page-0001.jpg" alt="Programming Using Java Certificate" loading="lazy">
+                            </div>
+                            <div class="certificate-info">
+                                <h3>Programming Using Java</h3>
+                                <p>A Java-based car rental system to manage bookings, customers, and vehicle availability efficiently</p>
+                                <div class="certificate-meta">
+                                    <span>Issued July 2024</span>
+                                    <div class="certificate-issuer">
+                                        <img src="./Cipher_School_page-0001.jpg" alt="Udemy" loading="lazy">
+                                        <span>Cipher School</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-img">
+                                <img src="./Cloud Computing_pages-to-jpg-0001.jpg" alt="Cloud Computing Certificate" loading="lazy">
+                            </div>
+                            <div class="certificate-info">
+                                <h3>Cloud Computing</h3>
+                                <p>On-demand services like storage and servers via the cloud</p>
+                                <div class="certificate-meta">
+                                    <span>Issued November 2024</span>
+                                    <div class="certificate-issuer">
+                                        <img src="./nptl logo.jpeg" alt="Coursera" loading="lazy">
+                                        <span>NPTL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-img">
+                                <img src="./ChatGPT Advanced Data Analysis_page-0001.jpg" alt="ChatGPT Advanced Data Analysis Certificate" loading="lazy">
+                            </div>
+                            <div class="certificate-info">
+                                <h3>ChatGPT Advanced Data Analysis</h3>
+                                <p>ChatGPT with built-in data analysis and coding tools</p>
+                                <div class="certificate-meta">
+                                    <span>Issued May 2024</span>
+                                    <div class="certificate-issuer">
+                                        <img src="./cousera logo.jpeg" alt="freeCodeCamp" loading="lazy">
+                                        <span>Coursera</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Internships Subsection -->
+                <div id="internships" class="portfolio-subsection">
+                    <h3 class="subsection-title">Internships</h3>
+                    <div class="section-content">
+                        <div class="internship-item">
+                            <div class="internship-img">
+                                <img src="./code alpha_page-0001.jpg" alt="Tech Company Logo" loading="lazy">
+                            </div>
+                            <div class="internship-info">
+                                <h3>Front-end Developer Intern</h3>
+                                <div class="internship-company">CodeAlpha</div>
+                                <div class="internship-period">February 2025 - March 2025</div>
+                                <p class="internship-desc">Developed responsive web applications using HTML, CSS, and JavaScript. Collaborated with a team of designers and back-end developers to implement user interfaces. Optimized website performance and implemented best practices for web accessibility.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="internship-item">
+                            <div class="internship-img">
+                                <img src="./UI UX intern.jpeg" alt="Design Agency Logo" loading="lazy">
+                            </div>
+                            <div class="internship-info">
+                                <h3>UI/UX Design Intern</h3>
+                                <div class="internship-company">Design Studio</div>
+                                <div class="internship-period">January 2023 - March 2023</div>
+                                <p class="internship-desc">Created wireframes and prototypes for web and mobile applications. Conducted user research and usability testing to improve design solutions. Worked with cross-functional teams to implement design systems for consistent brand experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-content">
+                    <div class="contact-info">
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <a href="mailto:aayanshanand11@gmail.com">aayanshanand11@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <a href="tel:+919304889547">+91 9304889547</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Bihar, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <h3>Social Media</h3>
+                            <div class="social-links">
+                                <a href="https://github.com/aayanshanand" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/aayansh-anand10/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home">
+                        <i class="fas fa-code"></i>
+                        <span>Aayansh Anand</span>
+                    </a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#certificates">Certificates</a></li>
+                        <li><a href="#internships">Internships</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Aayansh Anand. All Rights Reserved.</p>
+                <p>Designed and built with <i class="fas fa-heart"></i> by Aayansh Anand</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="#home" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        /**
+ * Portfolio Website JavaScript
+ * 
+ * This file handles:
+ * - Theme toggling (dark/light mode)
+ * - Mobile navigation menu
+ * - Smooth scrolling for navigation links
+ * - Portfolio filtering
+ * - Form validation and submission
+ * - Scroll animations and active link highlighting
+ * - Dropdown menu functionality
+ */
+
+// DOM Content Loaded Event
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all functions
+    initThemeToggle();
+    initMobileMenu();
+    initSmoothScroll();
+    initPortfolioFilter();
+    initFormSubmission();
+    initScrollAnimations();
+    initMobileDropdowns();
+    
+    // Make navigation links active based on scroll position
+    window.addEventListener('scroll', function() {
+        updateActiveLink();
+        toggleBackToTopButton();
+    });
+});
+
+/**
+ * Theme Toggle Functionality
+ * Handles the switching between light and dark mode with local storage persistence
+ */
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    } else if (savedTheme === 'light') {
+        document.body.classList.remove('dark-theme');
+    } else {
+        // If no saved preference, check system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            document.body.classList.add('dark-theme');
+        }
+    }
+    
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        
+        // Save theme preference
+        if (document.body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
+
+/**
+ * Mobile Menu Toggle
+ * Handles mobile menu opening/closing
+ */
+function initMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    mobileMenu.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+    
+    // Close menu when clicking on links (except dropdown toggles)
+    const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+}
+
+/**
+ * Mobile Dropdowns
+ * Handle dropdown menus in mobile view
+ */
+function initMobileDropdowns() {
+    // Only initialize on mobile
+    if (window.innerWidth <= 768) {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            
+            link.addEventListener('click', function(e) {
+                // Only prevent default on mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Close dropdowns when clicking dropdown items
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            });
+        });
+    }
+    
+    // Update on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        } else {
+            initMobileDropdowns();
+        }
+    });
+}
+
+/**
+ * Smooth Scroll for Navigation
+ * Enables smooth scrolling when clicking on navigation links
+ */
+function initSmoothScroll() {
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Don't prevent default for dropdown toggles on desktop
+            if (this.parentElement.classList.contains('dropdown') && window.innerWidth > 768) {
+                return;
+            }
+            
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+/**
+ * Portfolio Filter Functionality
+ * (Kept for future needs but not active as requested)
+ */
+function initPortfolioFilter() {
+    // Filter functionality disabled as requested
+    // All portfolio items are visible by default
+}
+
+/**
+ * Form Submission Handling
+ * Validates and handles contact form submission
+ */
+function initFormSubmission() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // In a real application, you would send the form data to a server here
+            // This is just a simulation for demonstration purposes
+            
+            // Show success message
+            alert('Thanks for your message! I\'ll get back to you soon.');
+            contactForm.reset();
+        });
+    }
+}
+
+/**
+ * Email Validation Helper
+ * @param {string} email - The email to validate
+ * @returns {boolean} - Whether the email is valid
+ */
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+/**
+ * Scroll Animations
+ * Handles animations when scrolling through the page
+ */
+function initScrollAnimations() {
+    // Initialize skill bars animation
+    const skillSections = document.querySelectorAll('.skills-category');
+    
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillLevels = entry.target.querySelectorAll('.skill-level');
+                skillLevels.forEach(level => {
+                    level.style.width = level.style.width || level.getAttribute('style').split('width:')[1].trim();
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    skillSections.forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Animate portfolio sections when scrolling
+    const portfolioSections = document.querySelectorAll('.portfolio-subsection');
+    
+    const portfolioObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+                portfolioObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    portfolioSections.forEach(section => {
+        section.style.opacity = 0;
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        portfolioObserver.observe(section);
+    });
+}
+
+/**
+ * Update Active Navigation Link
+ * Highlights the current section in the navigation menu
+ */
+function updateActiveLink() {
+    const sections = document.querySelectorAll('section, .portfolio-subsection');
+    const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+            
+            // If it's a dropdown item, also activate its parent
+            if (link.classList.contains('dropdown-item')) {
+                const parentDropdown = link.closest('.dropdown');
+                if (parentDropdown) {
+                    parentDropdown.querySelector('.nav-link').classList.add('active');
+                }
+            }
+        }
+    });
+}
+
+/**
+ * Back To Top Button
+ * Shows/hides the back-to-top button based on scroll position
+ */
+function toggleBackToTopButton() {
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    if (window.scrollY > 500) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+}
+
+/**
+ * Set current year in footer copyright
+ */
+document.querySelector('.footer-bottom p:first-child').innerHTML = 
+    `&copy; ${new Date().getFullYear()} Aayansh Anand. All Rights Reserved.`;
+    </script>
+</body>
+</html>
