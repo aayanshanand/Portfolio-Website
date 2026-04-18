@@ -89,8 +89,7 @@ function App() {
             />
           </div>
         </section>
-
-        {/* Internships Section */}
+      {/* Internships Section */}
         <section id="internships" className="py-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Internships</h2>
           <div className="grid grid-cols-1 gap-6">
