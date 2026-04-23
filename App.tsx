@@ -1,7 +1,7 @@
 import React from 'react';
 import { Briefcase, AlignCenterVertical as Certificate, Code } from 'lucide-react';
 
-function App() {
+function App() {  
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navigation */}
